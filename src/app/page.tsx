@@ -73,6 +73,62 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+        {/* Section Comment ça marche */}
+        <div className="bg-black/20 py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl text-center mb-16">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Comment ça marche ?</h2>
+              <p className="mt-4 text-lg text-gray-400">Le futur de la mode africaine en 4 étapes simples.</p>
+            </div>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+              {[
+                { step: "01", title: "Inspiration", desc: "Choisissez un thème culturel ou téléchargez une image d'inspiration." },
+                { step: "02", title: "Génération IA", desc: "Notre IA génère des motifs textiles uniques basés sur votre concept." },
+                { step: "03", title: "Confection", desc: "Nos artisans partenaires donnent vie au design avec des matériaux locaux." },
+                { step: "04", title: "Livraison", desc: "Recevez votre pièce unique certifiée par NFT sur la blockchain." }
+              ].map((s, i) => (
+                <div key={i} className="relative p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                  <span className="text-4xl font-black text-[#D4AF37]/20 absolute top-4 right-6">{s.step}</span>
+                  <h3 className="text-xl font-bold text-white mb-4 mt-4">{s.title}</h3>
+                  <p className="text-gray-400 text-sm">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Section FAQ */}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Questions Fréquentes</h2>
+          </div>
+          <div className="grid grid-cols-1 gap-6 max-w-3xl mx-auto">
+            {[
+              { q: "Qu'est-ce que la certification blockchain ?", a: "C'est une preuve numérique d'authenticité et de propriété unique pour chaque vêtement." },
+              { q: "Comment les créateurs sont-ils rémunérés ?", a: "Les créateurs reçoivent 80% du prix de vente directement via des smart contracts." },
+              { q: "Puis-je personnaliser mon design ?", a: "Oui, notre Styliste IA permet d'ajuster les motifs et les coupes selon vos envies." }
+            ].map((faq, i) => (
+              <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <h4 className="text-[#D4AF37] font-semibold mb-2">{faq.q}</h4>
+                <p className="text-gray-400 text-sm">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer */}
+        <footer className="border-t border-white/10 py-12">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="text-2xl font-bold text-white">DAHOMEY-TECH</div>
+            <div className="flex gap-8 text-sm text-gray-400">
+              <a href="#" className="hover:text-[#D4AF37]">Twitter</a>
+              <a href="#" className="hover:text-[#D4AF37]">Instagram</a>
+              <a href="#" className="hover:text-[#D4AF37]">Discord</a>
+            </div>
+            <p className="text-xs text-gray-500">© 2026 DAHOMEY-TECH. Tous droits réservés.</p>
+          </div>
+        </footer>
       </div>
     </div>
   );
