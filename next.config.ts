@@ -7,6 +7,15 @@ const nextConfig: NextConfig = {
     "*.repl.co",
     "*.kirk.replit.dev",
   ],
+  // shadcn-ui compatibility
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+    ],
+  },
 };
 
 export default nextConfig;
