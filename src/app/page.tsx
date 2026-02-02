@@ -39,6 +39,40 @@ export default function HomePage() {
             ))}
           </div>
         </div>
+
+        {/* Section À Propos */}
+        <div id="about" className="mx-auto max-w-7xl px-6 lg:px-8 py-24 border-t border-white/10">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 items-center">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl mb-6">
+                Notre Vision : Allier Tradition et Innovation
+              </h2>
+              <p className="text-lg text-gray-300 mb-6">
+                DAHOMEY-TECH n'est pas seulement une plateforme technologique, c'est un pont entre les générations. Nous croyons que l'intelligence artificielle peut magnifier le travail manuel de nos artisans au lieu de le remplacer.
+              </p>
+              <div className="space-y-4">
+                {[
+                  "Valorisation du Wax et du Bogolan via l'IA",
+                  "Transparence totale grâce à la blockchain",
+                  "Soutien direct aux artisans locaux"
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="h-2 w-2 rounded-full bg-[#D4AF37]"></div>
+                    <span className="text-gray-200">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="relative aspect-video rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&q=80&w=1200" 
+                alt="Artisanat Africain Moderne" 
+                className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
