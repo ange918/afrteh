@@ -9,47 +9,8 @@ interface Message {
   content: string;
 }
 
-const mockResponses: Record<string, string> = {
-  'tenue mariage': `Pour un mariage traditionnel béninois, je vous recommande :
-
-**Pour les femmes :**
-- Un ensemble en **Bazin riche** brodé, couleur or ou bordeaux
-- Accompagné d'un **gele** (coiffe) assorti
-- Des bijoux dorés pour compléter le look
-
-**Pour les hommes :**
-- Un **Agbada** majestueux en bazin blanc ou crème
-- Broderies dorées sur le col et les manches
-- Un bonnet traditionnel (fila) assorti
-
-Voulez-vous que je vous montre des créateurs spécialisés dans ces tenues ?`,
-
-  'look streetwear africain': `Voici mes suggestions pour un look streetwear africain moderne :
-
-**Pièces clés :**
-- **Hoodie oversize** avec motifs wax ou adinkra
-- **Bomber jacket** en tissu kente revisité
-- **T-shirt graphique** inspiré de l'art vodoun
-
-**Accessoires :**
-- Casquette ou bob avec imprimés africains
-- Sneakers blanches pour un contraste élégant
-- Sac banane en wax
-
-Je peux vous orienter vers notre collection Streetwear sur la marketplace !`,
-
-  'default': `Merci pour votre message ! En tant que styliste IA spécialisé dans la mode béninoise et africaine, je peux vous aider avec :
-
-- **Conseils personnalisés** pour vos tenues traditionnelles ou modernes
-- **Recommandations de créateurs** locaux selon votre style
-- **Associations de couleurs et tissus** (wax, kente, bazin, bogolan)
-- **Idées de looks** pour toutes les occasions
-
-Quel type de conseil recherchez-vous aujourd'hui ?`
-};
-
 const quickSuggestions = [
-  'Tenue mariage',
+  'Tenue mariage traditionnel',
   'Look streetwear africain',
   'Tenue pour gala',
   'Style business africain'
@@ -60,7 +21,7 @@ export default function ChatUI() {
     {
       id: '1',
       role: 'assistant',
-      content: 'Bonjour ! Je suis votre styliste IA DAHOMEY-TECH, expert en mode africaine contemporaine. Comment puis-je vous aider à créer votre look idéal aujourd\'hui ?'
+      content: 'Bonjour ! Je suis votre Styliste IA DAHOMEY-TECH, expert en mode béninoise et africaine contemporaine. Comment puis-je vous aider à créer votre look idéal aujourd\'hui ?'
     }
   ]);
   const [input, setInput] = useState('');
@@ -75,20 +36,9 @@ export default function ChatUI() {
     scrollToBottom();
   }, [messages]);
 
-  const getMockResponse = (userMessage: string): string => {
-    const lowerMessage = userMessage.toLowerCase();
-    if (lowerMessage.includes('mariage') || lowerMessage.includes('wedding')) {
-      return mockResponses['tenue mariage'];
-    }
-    if (lowerMessage.includes('streetwear') || lowerMessage.includes('urbain') || lowerMessage.includes('street')) {
-      return mockResponses['look streetwear africain'];
-    }
-    return mockResponses['default'];
-  };
-
   const handleSend = async (text?: string) => {
     const messageText = text || input;
-    if (!messageText.trim()) return;
+    if (!messageText.trim() || isTyping) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -100,15 +50,36 @@ export default function ChatUI() {
     setInput('');
     setIsTyping(true);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: messageText })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || data.error) {
+        throw new Error(data.error || 'Erreur inconnue');
+      }
+
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: getMockResponse(messageText)
+        content: data.message
       };
       setMessages(prev => [...prev, assistantMessage]);
+    } catch (error) {
+      const fallback: Message = {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: 'Je suis momentanément indisponible. Veuillez vérifier que la clé API Anthropic est configurée dans votre fichier .env.local, puis réessayez dans quelques instants.'
+      };
+      setMessages(prev => [...prev, fallback]);
+      console.error('Chat error:', error);
+    } finally {
       setIsTyping(false);
-    }, 1500);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -129,19 +100,19 @@ export default function ChatUI() {
             >
               {message.role === 'assistant' ? (
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #C9A84C, #8B6914)' }}>
                     <Sparkles className="w-4 h-4 text-black" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs text-zinc-500 mb-2">Styliste IA</p>
-                    <div className="text-zinc-200 leading-relaxed whitespace-pre-line">
+                    <p className="text-xs text-zinc-500 mb-2 font-sans">Styliste IA</p>
+                    <div className="text-zinc-200 leading-relaxed whitespace-pre-line font-sans text-sm">
                       {message.content}
                     </div>
                   </div>
                 </div>
               ) : (
                 <div className="bg-zinc-800 rounded-2xl px-4 py-3 max-w-[80%]">
-                  <p className="text-zinc-200">{message.content}</p>
+                  <p className="text-zinc-200 font-sans text-sm">{message.content}</p>
                 </div>
               )}
             </div>
@@ -149,12 +120,12 @@ export default function ChatUI() {
 
           {isTyping && (
             <div className="flex gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-yellow-500 to-yellow-700 flex items-center justify-center">
+              <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #C9A84C, #8B6914)' }}>
                 <Sparkles className="w-4 h-4 text-black" />
               </div>
               <div className="flex-1">
-                <p className="text-xs text-zinc-500 mb-2">Styliste IA</p>
-                <div className="flex gap-1">
+                <p className="text-xs text-zinc-500 mb-2 font-sans">Styliste IA</p>
+                <div className="flex gap-1 items-center h-6">
                   <span className="w-2 h-2 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
                   <span className="w-2 h-2 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
                   <span className="w-2 h-2 bg-zinc-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
@@ -175,7 +146,7 @@ export default function ChatUI() {
                 <button
                   key={suggestion}
                   onClick={() => handleSend(suggestion)}
-                  className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-full text-sm text-zinc-300 transition-colors"
+                  className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 rounded-full text-sm text-zinc-300 transition-colors font-sans"
                 >
                   {suggestion}
                 </button>
@@ -190,7 +161,8 @@ export default function ChatUI() {
               onKeyDown={handleKeyDown}
               placeholder="Décrivez le look de vos rêves..."
               rows={1}
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl py-4 px-5 pr-14 text-zinc-200 placeholder:text-zinc-500 focus:outline-none focus:border-yellow-500 resize-none"
+              disabled={isTyping}
+              className="w-full bg-zinc-800 border border-zinc-700 rounded-2xl py-4 px-5 pr-14 text-zinc-200 placeholder:text-zinc-500 focus:outline-none focus:border-[#C9A84C] resize-none font-sans text-sm disabled:opacity-60"
               style={{ minHeight: '56px', maxHeight: '200px' }}
             />
             <button
@@ -198,16 +170,17 @@ export default function ChatUI() {
               disabled={!input.trim() || isTyping}
               className={`absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-lg transition-all ${
                 input.trim() && !isTyping
-                  ? 'bg-yellow-500 text-black hover:bg-yellow-400'
+                  ? 'text-black hover:opacity-80'
                   : 'bg-zinc-700 text-zinc-500 cursor-not-allowed'
               }`}
+              style={input.trim() && !isTyping ? { backgroundColor: 'var(--gold)' } : {}}
             >
               <Send className="w-5 h-5" />
             </button>
           </div>
 
-          <p className="text-xs text-center mt-3 text-zinc-600">
-            L'IA peut faire des erreurs. Vérifiez les informations importantes.
+          <p className="text-xs text-center mt-3 text-zinc-600 font-sans">
+            Powered by Claude · L'IA peut faire des erreurs. Vérifiez les informations importantes.
           </p>
         </div>
       </div>
