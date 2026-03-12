@@ -1,0 +1,35 @@
+[1G[0K⠙[1G[0K
+> afrteh@0.1.0 dev
+> next dev -H 0.0.0.0 -p 5000
+
+[1G[0K⠙[1G[0K[1m[38;2;173;127;168m▲ Next.js 16.1.6[39m[22m (Turbopack)
+- Local:         http://localhost:5000
+- Network:       http://0.0.0.0:5000
+- Environments: .env.local
+
+[32m[1m✓[22m[39m Starting...
+[32m[1m✓[22m[39m Ready in 4.4s
+ GET / [32m200[39m in 1819ms[2m (compile: 1638ms, render: 181ms)[22m
+[33m[1m⚠[22m[39m Blocked cross-origin request from 43576d42-242b-46ef-aae8-b98b9a40177f-00-1xixy49lqxq7h.worf.replit.dev to /_next/* resource. To allow this, configure "allowedDevOrigins" in next.config
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET /creators [32m200[39m in 98ms[2m (compile: 77ms, render: 22ms)[22m
+ GET / [32m200[39m in 16ms[2m (compile: 2ms, render: 14ms)[22m
+ GET / [32m200[39m in 49ms[2m (compile: 3ms, render: 47ms)[22m
+ GET /assistant [32m200[39m in 63ms[2m (compile: 42ms, render: 21ms)[22m
+Anthropic API error: [33m400[39m {
+  type: [32m'error'[39m,
+  error: {
+    type: [32m'invalid_request_error'[39m,
+    message: [32m'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'[39m
+  },
+  request_id: [32m'req_011CYxppQCLQhKmAFoZ8zBvH'[39m
+}
+ POST /api/chat [33m400[39m in 276ms[2m (compile: 97ms, render: 179ms)[22m
+ GET / [32m200[39m in 19ms[2m (compile: 3ms, render: 16ms)[22m
+ GET / [32m200[39m in 43ms[2m (compile: 3ms, render: 40ms)[22m
+ GET / [32m200[39m in 41ms[2m (compile: 3ms, render: 37ms)[22m
+ GET / [32m200[39m in 45ms[2m (compile: 3ms, render: 41ms)[22m
+ GET /marketplace [32m200[39m in 290ms[2m (compile: 273ms, render: 17ms)[22m
+ GET /cart [32m200[39m in 64ms[2m (compile: 41ms, render: 23ms)[22m
+ GET /marketplace [32m200[39m in 17ms[2m (compile: 3ms, render: 14ms)[22m
+ GET /cart [32m200[39m in 19ms[2m (compile: 3ms, render: 16ms)[22m

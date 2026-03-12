@@ -1,0 +1,46 @@
+
+> afrteh@0.1.0 dev
+> next dev -H 0.0.0.0 -p 5000
+
+[1G[0K[1m[38;2;173;127;168m▲ Next.js 16.1.6[39m[22m (Turbopack)
+- Local:         http://localhost:5000
+- Network:       http://0.0.0.0:5000
+- Environments: .env.local
+
+[32m[1m✓[22m[39m Starting...
+[32m[1m✓[22m[39m Ready in 708ms
+Anthropic API error: [33m400[39m {
+  type: [32m'error'[39m,
+  error: {
+    type: [32m'invalid_request_error'[39m,
+    message: [32m'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'[39m
+  },
+  request_id: [32m'req_011CYxjTxHxuYhWPKP88bZQy'[39m
+}
+ POST /api/chat [33m400[39m in 434ms[2m (compile: 190ms, render: 244ms)[22m
+[37m[1m○[22m[39m Compiling / ...
+ GET / [32m200[39m in 4.3s[2m (compile: 4.1s, render: 212ms)[22m
+[33m[1m⚠[22m[39m Blocked cross-origin request from 43576d42-242b-46ef-aae8-b98b9a40177f-00-1xixy49lqxq7h.worf.replit.dev to /_next/* resource. To allow this, configure "allowedDevOrigins" in next.config
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET /assistant [32m200[39m in 67ms[2m (compile: 43ms, render: 24ms)[22m
+Anthropic API error: [33m400[39m {
+  type: [32m'error'[39m,
+  error: {
+    type: [32m'invalid_request_error'[39m,
+    message: [32m'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'[39m
+  },
+  request_id: [32m'req_011CYxkRyWT6dRniiJZXbswb'[39m
+}
+ POST /api/chat [33m400[39m in 137ms[2m (compile: 2ms, render: 135ms)[22m
+Anthropic API error: [33m400[39m {
+  type: [32m'error'[39m,
+  error: {
+    type: [32m'invalid_request_error'[39m,
+    message: [32m'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'[39m
+  },
+  request_id: [32m'req_011CYxkSSTC3691HQ9Aw92LL'[39m
+}
+ POST /api/chat [33m400[39m in 107ms[2m (compile: 3ms, render: 104ms)[22m
+ GET /cart [32m200[39m in 393ms[2m (compile: 377ms, render: 16ms)[22m
+ GET / [32m200[39m in 19ms[2m (compile: 3ms, render: 16ms)[22m
+ GET / [32m200[39m in 55ms[2m (compile: 4ms, render: 52ms)[22m
