@@ -1,0 +1,100 @@
+
+> afrteh@0.1.0 dev
+> next dev -H 0.0.0.0 -p 5000
+
+[1G[0K[1m[38;2;173;127;168m▲ Next.js 16.1.6[39m[22m (Turbopack)
+- Local:         http://localhost:5000
+- Network:       http://0.0.0.0:5000
+
+[32m[1m✓[22m[39m Starting...
+[32m[1m✓[22m[39m Ready in 1183ms
+ GET / [32m200[39m in 1967ms[2m (compile: 1803ms, render: 164ms)[22m
+ GET / [32m200[39m in 59ms[2m (compile: 4ms, render: 55ms)[22m
+ GET / [32m200[39m in 105ms[2m (compile: 64ms, render: 42ms)[22m
+ GET / [32m200[39m in 19ms[2m (compile: 3ms, render: 16ms)[22m
+ GET / [32m200[39m in 19ms[2m (compile: 3ms, render: 16ms)[22m
+ GET / [32m200[39m in 31ms[2m (compile: 3ms, render: 28ms)[22m
+ GET / [32m200[39m in 17ms[2m (compile: 2ms, render: 14ms)[22m
+ GET / [32m200[39m in 18ms[2m (compile: 3ms, render: 16ms)[22m
+ GET / [32m200[39m in 29ms[2m (compile: 3ms, render: 26ms)[22m
+ GET / [32m200[39m in 24ms[2m (compile: 3ms, render: 20ms)[22m
+ GET / [32m200[39m in 24ms[2m (compile: 3ms, render: 22ms)[22m
+ GET / [32m200[39m in 18ms[2m (compile: 3ms, render: 15ms)[22m
+ GET / [32m200[39m in 47ms[2m (compile: 29ms, render: 18ms)[22m
+ GET / [32m200[39m in 16ms[2m (compile: 2ms, render: 13ms)[22m
+ GET / [32m200[39m in 16ms[2m (compile: 3ms, render: 14ms)[22m
+ GET / [32m200[39m in 21ms[2m (compile: 3ms, render: 18ms)[22m
+ GET / [32m200[39m in 17ms[2m (compile: 3ms, render: 14ms)[22m
+ GET / [32m200[39m in 14ms[2m (compile: 3ms, render: 12ms)[22m
+ GET / [32m200[39m in 94ms[2m (compile: 80ms, render: 13ms)[22m
+ GET / [32m200[39m in 16ms[2m (compile: 2ms, render: 14ms)[22m
+ GET / [32m200[39m in 15ms[2m (compile: 3ms, render: 13ms)[22m
+ GET / [32m200[39m in 15ms[2m (compile: 3ms, render: 13ms)[22m
+[32m[1m✓[22m[39m Compiled in 80ms
+ GET / [32m200[39m in 214ms[2m (compile: 73ms, render: 141ms)[22m
+ GET / [32m200[39m in 75ms[2m (compile: 61ms, render: 14ms)[22m
+[32m[1m✓[22m[39m Compiled in 109ms
+ GET / [32m200[39m in 106ms[2m (compile: 67ms, render: 39ms)[22m
+ GET / [32m200[39m in 101ms[2m (compile: 3ms, render: 98ms)[22m
+[32m[1m✓[22m[39m Compiled in 140ms
+ GET / [32m200[39m in 88ms[2m (compile: 58ms, render: 30ms)[22m
+ GET / [32m200[39m in 20ms[2m (compile: 3ms, render: 17ms)[22m
+ GET / [32m200[39m in 18ms[2m (compile: 3ms, render: 16ms)[22m
+ GET / [32m200[39m in 78ms[2m (compile: 63ms, render: 15ms)[22m
+ GET / [32m200[39m in 17ms[2m (compile: 2ms, render: 14ms)[22m
+ GET / [32m200[39m in 17ms[2m (compile: 2ms, render: 15ms)[22m
+ GET / [32m200[39m in 17ms[2m (compile: 2ms, render: 15ms)[22m
+ GET / [32m200[39m in 18ms[2m (compile: 2ms, render: 15ms)[22m
+ GET / [32m200[39m in 16ms[2m (compile: 2ms, render: 14ms)[22m
+ GET / [32m200[39m in 19ms[2m (compile: 2ms, render: 17ms)[22m
+ GET / [32m200[39m in 19ms[2m (compile: 3ms, render: 16ms)[22m
+ GET / [32m200[39m in 18ms[2m (compile: 3ms, render: 15ms)[22m
+ GET / [32m200[39m in 16ms[2m (compile: 2ms, render: 14ms)[22m
+ GET / [32m200[39m in 20ms[2m (compile: 2ms, render: 18ms)[22m
+ GET / [32m200[39m in 19ms[2m (compile: 3ms, render: 17ms)[22m
+ GET / [32m200[39m in 17ms[2m (compile: 2ms, render: 14ms)[22m
+ GET / [32m200[39m in 23ms[2m (compile: 3ms, render: 20ms)[22m
+ GET / [32m200[39m in 17ms[2m (compile: 2ms, render: 14ms)[22m
+ GET / [32m200[39m in 13ms[2m (compile: 2ms, render: 11ms)[22m
+ GET / [32m200[39m in 20ms[2m (compile: 3ms, render: 17ms)[22m
+[32m[1m✓[22m[39m Compiled in 129ms
+ GET / [32m200[39m in 108ms[2m (compile: 69ms, render: 39ms)[22m
+ GET / [32m200[39m in 95ms[2m (compile: 81ms, render: 14ms)[22m
+ GET / [32m200[39m in 15ms[2m (compile: 2ms, render: 13ms)[22m
+ GET / [32m200[39m in 20ms[2m (compile: 3ms, render: 17ms)[22m
+ GET / [32m200[39m in 20ms[2m (compile: 3ms, render: 17ms)[22m
+ GET / [32m200[39m in 31ms[2m (compile: 3ms, render: 28ms)[22m
+ GET / [32m200[39m in 22ms[2m (compile: 3ms, render: 20ms)[22m
+ GET / [32m200[39m in 22ms[2m (compile: 4ms, render: 18ms)[22m
+ GET / [32m200[39m in 18ms[2m (compile: 3ms, render: 16ms)[22m
+ GET / [32m200[39m in 18ms[2m (compile: 2ms, render: 15ms)[22m
+ GET / [32m200[39m in 17ms[2m (compile: 2ms, render: 14ms)[22m
+ GET / [32m200[39m in 16ms[2m (compile: 1831µs, render: 14ms)[22m
+ GET / [32m200[39m in 15ms[2m (compile: 1831µs, render: 13ms)[22m
+[31m[1m⨯[22m[39m Error: ENOENT: no such file or directory, open '/home/runner/workspace/.next/dev/server/app/page/build-manifest.json'
+    at [3mignore-listed frames[23m {
+  errno: [33m-2[39m,
+  code: [32m'ENOENT'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'/home/runner/workspace/.next/dev/server/app/page/build-manifest.json'[39m
+}
+
+thread 'tokio-runtime-worker' (1988) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for Project::execution_context (TaskId 381))
+
+Caused by:
+    0: Looking up data for TaskId 381 from database failed
+    1: Unable to open static sorted file referenced from 00000376.meta
+    2: Unable to open static sorted file 00000370.sst
+    3: No such file or directory (os error 2)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'tokio-runtime-worker' (1960) panicked at /build/turbopack/crates/turbo-tasks-backend/src/backend/operation/mod.rs:156:17:
+Failed to restore task data (corrupted database or bug): Meta for Project::execution_context (TaskId 381))
+
+Caused by:
+    0: Looking up data for TaskId 381 from database failed
+    1: Unable to open static sorted file referenced from 00000376.meta
+    2: Unable to open static sorted file 00000370.sst
+    3: No such file or directory (os error 2)
+[37m[1m○[22m[39m Compiling /_error ...
