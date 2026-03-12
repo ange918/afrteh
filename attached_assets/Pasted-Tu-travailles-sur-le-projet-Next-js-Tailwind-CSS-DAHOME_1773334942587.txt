@@ -1,0 +1,67 @@
+Tu travailles sur le projet Next.js + Tailwind CSS "DAHOMEY-TECH". Stack : Next.js App Router, TypeScript, Tailwind CSS. Esthétique luxe noir & or (--gold: #C9A84C, --background: #080808, --surface, --border-light), polices Cormorant Garamond + Montserrat. Classes : .btn-gold, .btn-ghost, .luxury-card, .font-display.
+
+---
+
+## TÂCHE 1 — SUPPRIMER L'ANCIEN DASHBOARD
+
+Supprimer complètement :
+- src/app/dashboard/ (dossier entier)
+- src/components/dashboard/ (dossier entier)
+
+Dans src/components/Navbar.tsx :
+- Supprimer le lien "Studio" qui pointait vers /dashboard
+- Le remplacer par "Mon Compte" qui pointe vers /account (affiché seulement si connecté)
+
+---
+
+## TÂCHE 2 — SYSTÈME D'AUTHENTIFICATION (sans base de données)
+
+Utiliser uniquement React Context + localStorage pour simuler l'auth.
+
+### 2a. Créer src/context/AuthContext.tsx
+```typescript
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: 'client' | 'styliste';
+  avatar?: string;
+  city?: string;
+  specialty?: string; // pour les stylistes
+  bio?: string;
+  createdAt: string;
+}
+```
+- AuthProvider avec useState<User | null>
+- Fonctions :
+  - login(email, password) → vérifie dans localStorage, retourne User ou erreur
+  - register(name, email, password, role) → crée user dans localStorage, auto-login
+  - logout() → clear state + localStorage
+  - updateProfile(data) → met à jour le user
+- Persister le user connecté dans localStorage ('dahomey_user')
+- Exporter useAuth() hook
+- Wrapper layout.tsx : <AuthProvider> autour de tout
+
+### 2b. Créer src/app/auth/page.tsx
+Page unique avec toggle Login / Inscription
+
+**Vue Login :**
+- Titre "Connexion" en Cormorant Garamond
+- Champs : Email, Mot de passe
+- Bouton "Se connecter" (.btn-gold)
+- Lien "Pas encore de compte ? S'inscrire"
+- Comptes de démo pré-remplis (boutons rapides) :
+  - "Connexion Styliste Demo" → email: styliste@demo.com / pass: demo123
+  - "Connexion Client Demo" → email: client@demo.com / pass: demo123
+
+**Vue Inscription :**
+- Titre "Créer un compte" en Cormorant Garamond
+- Champs : Nom complet, Email, Mot de passe, Confirmer mot de passe
+- Sélecteur de rôle avec 2 cards cliquables :
+  - 🛍 "Je suis Client" — "Je cherche des créations uniques"
+  - ✂️ "Je suis Styliste / Créateur" — "Je veux vendre mes créations"
+- Si rôle Styliste : afficher champs supplémentaires : Ville, Spécialité (select : Wax & Pagne / Haute Couture / Streetwear / Broderie & Bazin), Bio courte
+- Bouton "Créer mon compte" (.btn-gold)
+- Lien "Déjà un compte ? Se connecter"
+
+**Initialiser les comptes demo dans localStorage au premier chargement :**

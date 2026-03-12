@@ -1,12 +1,14 @@
 'use client';
 
 import Link from "next/link";
-import { ShoppingBag, Menu, X } from "lucide-react";
+import { ShoppingBag, Menu, X, User } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/AuthContext";
 import { useState } from "react";
 
 export default function Navbar() {
   const { getItemCount } = useCart();
+  const { user } = useAuth();
   const itemCount = getItemCount();
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -42,13 +44,24 @@ export default function Navbar() {
               </span>
             )}
           </Link>
-          <Link
-            href="/dashboard"
-            className="text-sm font-medium px-4 py-2 rounded-full text-black transition-colors font-sans"
-            style={{ backgroundColor: 'var(--gold)' }}
-          >
-            Dashboard
-          </Link>
+          {user ? (
+            <Link
+              href="/account"
+              className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full text-black transition-colors font-sans"
+              style={{ backgroundColor: 'var(--gold)' }}
+            >
+              <User className="w-4 h-4" />
+              Mon Compte
+            </Link>
+          ) : (
+            <Link
+              href="/auth"
+              className="text-sm font-medium px-4 py-2 rounded-full border transition-colors font-sans hover:bg-white/10"
+              style={{ borderColor: 'var(--gold)', color: 'var(--gold)' }}
+            >
+              Connexion
+            </Link>
+          )}
         </div>
 
         <div className="md:hidden flex items-center gap-3">
@@ -78,14 +91,25 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/dashboard"
-            className="text-sm font-medium px-4 py-2 rounded-full text-black text-center"
-            style={{ backgroundColor: 'var(--gold)' }}
-            onClick={() => setMobileOpen(false)}
-          >
-            Dashboard
-          </Link>
+          {user ? (
+            <Link
+              href="/account"
+              className="text-sm font-medium px-4 py-2 rounded-full text-black text-center"
+              style={{ backgroundColor: 'var(--gold)' }}
+              onClick={() => setMobileOpen(false)}
+            >
+              Mon Compte
+            </Link>
+          ) : (
+            <Link
+              href="/auth"
+              className="text-sm font-medium px-4 py-2 rounded-full text-center border"
+              style={{ borderColor: 'var(--gold)', color: 'var(--gold)' }}
+              onClick={() => setMobileOpen(false)}
+            >
+              Connexion
+            </Link>
+          )}
         </div>
       )}
     </nav>
