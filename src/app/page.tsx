@@ -64,7 +64,7 @@ export default function HomePage() {
         <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/fabric-of-squares.png')]"></div>
 
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium leading-6 ring-1 ring-inset mb-8 font-sans" style={{ color: 'var(--gold)', ringColor: 'var(--gold)', backgroundColor: 'rgba(201,168,76,0.05)', borderColor: 'rgba(201,168,76,0.2)', border: '1px solid rgba(201,168,76,0.2)' }}>
+          <div className="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium leading-6 ring-1 ring-inset mb-8 font-sans" style={{ color: 'var(--gold)', backgroundColor: 'rgba(201,168,76,0.05)', border: '1px solid rgba(201,168,76,0.2)' }}>
             L'IA au service du patrimoine textile
           </div>
           <h1 className="font-display text-6xl font-bold tracking-tight text-white sm:text-8xl mb-8 leading-tight">

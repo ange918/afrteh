@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Star, Users, TrendingUp, ArrowLeft } from 'lucide-react';
 import { getCreatorById, getProductsByCreator, creators } from '@/lib/mock-data';
 import ProductCard from '@/components/ProductCard';
+import FollowButton from '@/components/FollowButton';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -42,11 +43,7 @@ export default async function CreatorProfilePage({ params }: PageProps) {
               <h1 className="font-display text-5xl md:text-6xl font-bold text-white">{creator.name}</h1>
               <p className="text-zinc-300 font-sans mt-1">{creator.city}, Bénin</p>
             </div>
-            <button className="self-start md:self-auto px-6 py-2.5 border rounded-full text-sm font-semibold font-sans transition-all hover:text-black" style={{ borderColor: 'var(--gold)', color: 'var(--gold)' }}
-              onMouseEnter={(e) => { (e.target as HTMLButtonElement).style.backgroundColor = 'var(--gold)'; (e.target as HTMLButtonElement).style.color = '#000'; }}
-              onMouseLeave={(e) => { (e.target as HTMLButtonElement).style.backgroundColor = 'transparent'; (e.target as HTMLButtonElement).style.color = 'var(--gold)'; }}>
-              + Suivre ce créateur
-            </button>
+            <FollowButton />
           </div>
         </div>
       </div>
